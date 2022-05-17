@@ -3,10 +3,11 @@ function Book(title, author, pages, read) {
   this.author = author
   this.pages = pages
   this.read = read
-  this.info = function() {
-    string = title + " by " + author + ", " + pages + " pages, "+ read
-    return string
-  }
+}
+
+Book.prototype.info = function() {
+  string = this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read
+  return string
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet')
