@@ -10,4 +10,22 @@ Book.prototype.info = function() {
   return string
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet')
+Book.prototype.addBookToLibrary = function() {
+  myLibrary.push(this)
+}
+
+function displayBooks() {
+  for (const myBook of myLibrary) {
+    console.log(myBook.info());
+  }
+}
+
+function addChild() {
+  document.getElementById('form1').style.display = 'block';
+}
+
+let theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
+let theHobbit2 = new Book('The Hobbit2', 'J.R.R Tolkien', '295', 'not read yet');
+let myLibrary = [];
+theHobbit.addBookToLibrary();
+theHobbit2.addBookToLibrary();
