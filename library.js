@@ -12,6 +12,12 @@ Book.prototype.info = function() {
 
 Book.prototype.addBookToLibrary = function() {
   myLibrary.push(this)
+
+  const container = document.querySelector('#library')
+  const content = document.createElement('div')
+  content.classList.add('content')
+  content.textContent = this.info()
+  container.appendChild(content)
 }
 
 function displayBooks() {
@@ -21,11 +27,20 @@ function displayBooks() {
 }
 
 function showForm() {
-  document.getElementById('form1').style.display = 'block';
+  document.getElementById('form1').style.display = 'block'
 }
 
-let theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
-let theHobbit2 = new Book('The Hobbit2', 'J.R.R Tolkien', '295', 'not read yet');
 let myLibrary = [];
-theHobbit.addBookToLibrary();
-theHobbit2.addBookToLibrary();
+
+let saveBookButton = document.querySelector('.saveBook')
+
+saveBookButton.addEventListener('click', function (e) {
+  title = document.getElementById("title").value
+  author =  document.getElementById("author").value
+  pages =  document.getElementById("pages").value
+  read = document.getElementById("read").value
+  
+  newBook = new Book(title, author, pages, read)
+  newBook.addBookToLibrary()
+  
+});
