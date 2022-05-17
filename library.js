@@ -20,7 +20,7 @@ function displayBooks() {
   }
 }
 
-function addChild() {
+function showForm() {
   document.getElementById('form1').style.display = 'block';
 }
 
